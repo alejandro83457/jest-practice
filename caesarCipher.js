@@ -5,16 +5,17 @@ function caesarCipher(word, shift) {
   if (word.length == 0) return '';
   if (shift == 0) return word;
 
-  let shiftedArr = [];
-  // convert to arr and iterate
-  word.split('').forEach((ch) => {
-    // check if ch is a letter
-    // call shiftLetter and push to shiftedArr if ch is letter
-    if (isLetter(ch)) shiftedArr.push(shiftLetter(ch, shift));
-    else shiftedArr.push(ch);
-  });
-  // convert back to string
-  return shiftedArr.join('');
+  // convert to arr
+  // use reduce to create new arr
+  // convert to str and return
+  return word
+    .split('')
+    .reduce((acc, curr) => {
+      if (isLetter(curr)) acc.push(shiftLetter(curr, shift));
+      else acc.push(curr);
+      return acc;
+    }, [])
+    .join('');
 }
 
 // checks if a character is a letter if regexp
