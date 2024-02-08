@@ -1,4 +1,4 @@
-import capitalize from './functions';
+import capitalize from '../capitalize';
 
 test('Simple capitalization', () => {
   expect(capitalize('alex')).toBe('Alex');
